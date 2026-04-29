@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Luxury Carousel</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#000;
+    overflow:hidden;
+}
+
+.carousel{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Card */
+.card{
+    position:absolute;
+    width:26vw;
+    aspect-ratio:4/5;
+    transition:all 1.2s cubic-bezier(.65,.05,.36,1);
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="carousel">
+    <div class="card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1521119989659-a83eee488004"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1502767089025-6572583495b0"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1491349174775-aaafddd81942"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1488161628813-04466f872be2"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3"></div>
+</div>
+
+<script>
+
+let cards = document.querySelectorAll(".card");
+let total = cards.length;
+let centerIndex = 0;
+
+function updatePositions(){
+
+    cards.forEach((card,i)=>{
+
+        let rawOffset = i - centerIndex;
+
+        // circular normalize
+        let offset = ((rawOffset % total) + total) % total;
+
+        if(offset > total/2){
+            offset -= total;
+        }
+
+        let distance = Math.abs(offset);
+
+        let scale = 0.7 + (distance * 0.12);
+        let x = offset * (window.innerWidth * 0.14);
+        let y = distance * 60;
+
+        card.style.left = "50%";
+        card.style.top = "50%";
+
+        // 🔥 KEY FIX:
+        // If card jumps from extreme left to extreme right
+        // remove transition for that frame
+        if(Math.abs(rawOffset) > total/2){
+            card.style.transition = "none";
+        } else {
+            card.style.transition = "all 1.2s cubic-bezier(.65,.05,.36,1)";
+        }
+
+        card.style.transform =
+        `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) scale(${scale})`;
+
+        card.style.zIndex = 100 - distance;
+        card.style.opacity = 1 - (distance * 0.08);
+    });
+}
+
+updatePositions();
+
+function nextSlide(){
+    centerIndex = (centerIndex + 1) % total;
+    updatePositions();
+}
+
+setInterval(nextSlide, 2800);
+
+</script>
+
+</body>
+</html>

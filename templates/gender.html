@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins'; background: #f8f6f4; text-align: center; padding: 50px; }
+        .section { display: none; }
+        .active { display: block; }
+        .grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .card { width: 220px; background: white; padding: 15px; border-radius: 20px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 280px; object-fit: cover; border-radius: 15px; }
+        .upload-btn { padding: 15px 45px; background: #2c2c2c; color: white; border-radius: 50px; border:none; cursor:pointer; margin-top:20px; }
+    </style>
+</head>
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div id="step1" class="section active">
+            <h1>Select Gender</h1>
+            <div class="grid">
+               <div class="card" onclick="setGender('Female')">
+    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=500&auto=format&fit=crop">
+    <h3>Female</h3>
+    <input type="radio" name="gender" id="genF" value="Female" style="display:none">
+</div>
+
+<div class="card" onclick="setGender('Male')">
+    <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=500&auto=format&fit=crop">
+    <h3>Male</h3>
+    <input type="radio" name="gender" id="genM" value="Male" style="display:none">
+</div>
+            </div>
+        </div>
+        <div id="step2" class="section">
+            <h1>Choose Body Shape</h1>
+            <div class="grid" id="bodyOptions"></div>
+        </div>
+        <div id="step3" class="section">
+            <h1>Final Step: Face Analysis</h1>
+            <input type="file" name="file" accept="image/*"><br><br>
+            <button type="submit" class="upload-btn">Analyze & Results</button>
+        </div>
+    </form>
+    <script>
+    function setGender(g) {
+        // Gender radio button select karne ke liye
+        const genId = (g === 'Female') ? 'genF' : 'genM';
+        const radioGen = document.getElementById(genId);
+        if(radioGen) radioGen.checked = true;
+
+        const bodyDiv = document.getElementById("bodyOptions");
+        bodyDiv.innerHTML = ""; // Clear previous options
+
+        // --- FEMALE BODY SHAPES DATA (Using your provided links) ---
+        const femaleShapes = [
+            { name: 'Pear', img: 'https://th.bing.com/th/id/OIP.fE9pd1emnr4CjveWhifTiwHaJQ?w=200&h=200&c=10&o=6&dpr=1.3&pid=genserp&rm=2' },
+            { name: 'Apple', img: 'https://th.bing.com/th/id/OIP.3ULO6P1BW3UW8DAF-2eZYAHaJQ?w=200&h=200&c=10&o=6&dpr=1.3&pid=genserp&rm=2' },
+            { name: 'Hourglass', img: 'https://global-uploads.webflow.com/5eca30fd2b50b671e2107b06/60f12a025285e1675eb6871b_Hourglass%20Body%20Shape%20Title%20Image.png' },
+            { name: 'Rectangle', img: 'https://th.bing.com/th/id/OIP.Wy-ydH_K3KPhryrz3hqjZAHaJQ?w=200&h=200&c=10&o=6&dpr=1.3&pid=genserp&rm=2' },
+            { name: 'Inverted Triangle', img: 'https://th.bing.com/th/id/OIP.0uumA9aSgAp9i5s4aRg2WAHaJQ?w=200&h=200&c=10&o=6&dpr=1.3&pid=genserp&rm=2' }
+        ];
+
+        // --- MALE BODY SHAPES DATA ---
+        const maleShapes = [
+            { name: 'Rectangle', img: '/static/images/rect.jpg' },
+            { name: 'Triangle', img: '/static/images/tri.jpg' },
+            { name: 'Oval', img: '/static/images/oval.jpg' }
+        ];
+
+        // Gender ke hisaab se shapes select karein
+        const shapes = (g === 'Female') ? femaleShapes : maleShapes;
+
+        // Cards generate karein
+        shapes.forEach(s => {
+            // ID generate karte waqt space ko underscore se badla hai taaki error na aaye
+            const safeId = "body_" + s.name.replace(/\s+/g, '_');
+            bodyDiv.innerHTML += `
+                <div class="card" onclick="setBody('${s.name}')">
+                    <img src="${s.img}" alt="${s.name}" style="object-fit: cover;">
+                    <h3>${s.name}</h3>
+                    <input type="radio" name="body_type" value="${s.name}" id="${safeId}" style="display:none">
+                </div>`;
+        });
+
+        // Step change karein
+        document.getElementById("step1").classList.remove("active");
+        document.getElementById("step2").classList.add("active");
+    }
+
+    function setBody(b) {
+        // Body type radio button check karein (Space handle karke)
+        const safeId = "body_" + b.replace(/\s+/g, '_');
+        const radioBtn = document.getElementById(safeId);
+        if(radioBtn) radioBtn.checked = true;
+        
+        // Final step par jayein
+        document.getElementById("step2").classList.remove("active");
+        document.getElementById("step3").classList.add("active");
+    }
+</script>
+</body>
+</html>

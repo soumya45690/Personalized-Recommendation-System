@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nail Guide</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: #fff0f5;
+            font-family: 'Poppins', sans-serif;
+            color: #222;
+        }
+
+        /* NAV BUTTONS */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 22px;
+            text-decoration: none;
+            color: black;
+            background: white;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomIn 6s ease forwards;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 60px 20px;
+            animation: fadeUp 1s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .author {
+            color: gray;
+            margin-bottom: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* FADE */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center;
+    margin: 30px 0;
+    border-radius: 14px;
+    transition: transform 0.35s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.article-img:hover {
+    transform: scale(1.02);
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- BUTTONS -->
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <a href="index.html" class="close-btn">✕</a>
+
+    <!-- HERO IMAGE -->
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+       <h1>Ultimate Nail Painting Guide</h1>
+<div class="author">BY LAUREN GORDON • NAILS</div>
+
+<p>
+Perfect nails are not just about applying polish — they are about preparation, control, and finishing technique. A well-executed manicure can completely elevate your overall look and style.
+</p>
+
+<img src="https://www.instyle.com/thmb/Vx3PhIpcwYlmPU2kIZrgUf9SykI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/nyenailslede-07dec96e417d4b11a28f3e420310249f.jpg" class="article-img">
+
+<p>
+With the right steps, you can achieve a smooth, salon-quality finish at home. Every layer matters, from base preparation to the final glossy seal.
+</p>
+
+<!-- 1 -->
+<h2>1. Clean Nail Preparation</h2>
+<img src="https://cameocollege.com/wp-content/uploads/2024/12/gb6gtitzkb8.jpg" class="article-img">
+<p>
+Start by removing any old polish and shaping your nails evenly for a clean base.  
+Gently buff the surface to smooth ridges and improve polish grip.  
+Clean nails ensure better adhesion and a longer-lasting manicure.  
+This step prevents uneven texture and early chipping issues.  
+Proper preparation is the foundation of every professional nail look.  
+Never skip this step if you want a flawless finish.
+</p>
+
+<!-- 2 -->
+<h2>2. Base Coat Protection</h2>
+<img src="https://cdn.shopify.com/s/files/1/0308/7296/1068/files/2000x2000.jpg?v=1742293361" class="article-img">
+<p>
+Apply a thin base coat to protect nails from staining and damage.  
+It creates a smooth surface that helps polish spread evenly.  
+This layer improves color durability and prevents peeling.  
+Always allow it to dry completely before applying nail color.  
+A good base coat significantly increases manicure longevity.  
+Think of it as the essential foundation of nail styling.
+</p>
+
+<!-- 3 -->
+<h2>3. Perfect Color Application</h2>
+<img src="https://hildenbrewing.com/wp-content/uploads/2023/05/application_vernis.png" class="article-img">
+<p>
+Apply nail polish in thin, controlled strokes for even coverage.  
+Two thin layers always look better than one thick coat.  
+Allow each coat to dry properly before applying the next.  
+Thick layers can cause bubbles, streaks, and uneven finish.  
+Precision is key to achieving a smooth professional look.  
+Take your time for a clean, polished result.
+</p>
+
+<!-- 4 -->
+<h2>4. Precision Cleanup</h2>
+<img src="https://miro.medium.com/v2/resize:fit:826/1*9Ksz9lhsmEoXIjj4AZFcpg.jpeg" class="article-img">
+<p>
+Use a small brush dipped in nail remover to clean edges.  
+This helps remove smudges and sharpens the nail outline.  
+It gives your manicure a neat, salon-level finish.  
+Precision detailing enhances the overall aesthetic appeal.  
+Small corrections can completely elevate the final look.  
+Clean edges make nails look professionally done.
+</p>
+
+<!-- 5 -->
+<h2>5. Glossy Top Coat Finish</h2>
+<img src="https://th.bing.com/th/id/OIP.dWmoKaI4_qasDlSgYGz8PAHaD0?w=346&h=179&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="article-img">
+<p>
+Finish with a high-shine top coat to seal and protect the polish.  
+It prevents chipping and adds a smooth glossy finish.  
+Always cap the nail tips for longer-lasting wear.  
+This final layer enhances durability and shine.  
+It instantly gives a professional salon-quality look.  
+A good top coat defines the entire manicure.
+</p>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

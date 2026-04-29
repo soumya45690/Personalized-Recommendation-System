@@ -1,0 +1,141 @@
+<style>
+    /* Section Styling */
+    .faq-section {
+        max-width: 950px;
+        margin: 60px auto; /* Margin thoda kam kiya taaki index mein fit baithe */
+        padding: 40px;
+        background: #faf9f7;
+    }
+
+    .faq-section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 44px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .faq-item {
+        border-radius: 12px;
+        margin-bottom: 18px;
+        background: white;
+        padding: 22px 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        cursor: pointer;
+        transition: 0.3s ease;
+        text-align: left; /* Text align left rakha hai */
+    }
+
+    .faq-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .faq-question {
+        font-size: 18px;
+        font-weight: 500;
+        color: #222;
+        position: relative;
+        padding-right: 30px;
+    }
+
+    /* Icon + and - */
+    .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 22px;
+        transition: 0.3s;
+    }
+
+    .faq-item.active .faq-question {
+        color: #d3b596; /* Theme color se match kiya */
+    }
+
+    .faq-item.active .faq-question::after {
+        content: "−";
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        color: #555;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+        margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .faq-section { padding: 20px; }
+        .faq-section h2 { font-size: 30px; }
+    }
+</style>
+
+<section class="faq-section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">What is Sassy Chic and how does it work?</div>
+        <div class="faq-answer">
+            Sassy Chic is a personalized fashion platform designed to help you discover styles that suit your face shape, features, and personality. By combining visual inputs and smart recommendations, the platform suggests outfits, colors, and aesthetics that enhance your natural look.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Is the styling recommendation truly personalized?</div>
+        <div class="faq-answer">
+            Yes. The system focuses on individuality — your facial structure, tone, and preferences are considered to generate tailored suggestions instead of generic fashion advice. The goal is to help you build a style identity that feels authentic to you.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Do I need any prior fashion knowledge?</div>
+        <div class="faq-answer">
+            Not at all. The platform is designed for everyone — whether you're a beginner exploring your style or someone experienced looking to refine it. The interface is intuitive and guides you step-by-step.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Is my data and image safe?</div>
+        <div class="faq-answer">
+            User privacy is treated with high importance. Images are processed securely and are not stored unnecessarily. The focus is on delivering results while maintaining trust and safety.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Can I use this for daily styling inspiration?</div>
+        <div class="faq-answer">
+            Absolutely. Sassy Chic can be used not just for one-time recommendations but as an ongoing styling assistant — helping you explore new looks, trends, and combinations that align with your personal aesthetic.
+        </div>
+    </div>
+</section>
+
+<script>
+    // Event delegation use kiya hai taaki fetch hone ke baad bhi click kaam kare
+    document.getElementById("faq").addEventListener("click", function(e) {
+        const item = e.target.closest(".faq-item");
+        if (!item) return;
+
+        // Close other items
+        document.querySelectorAll(".faq-item").forEach(el => {
+            if (el !== item) {
+                el.classList.remove("active");
+                el.querySelector(".faq-answer").style.maxHeight = null;
+            }
+        });
+
+        // Toggle current item
+        item.classList.toggle("active");
+        const answer = item.querySelector(".faq-answer");
+
+        if (item.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            answer.style.maxHeight = null;
+        }
+    });
+</script>

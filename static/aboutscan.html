@@ -1,0 +1,200 @@
+<section class="about-scan">
+
+  <div class="scan-container">
+
+    <!-- main heading part -->
+    
+
+    <!-- feature 1 -->
+    <div class="scan-feature">
+      <div class="scan-text">
+        <h3>Facial Structure Mapping</h3>
+        <p>
+          Our system analyzes jawline sharpness, cheekbone prominence,
+          forehead width, and facial symmetry to determine your precise face shape.
+        </p>
+      </div>
+
+      <div class="scan-image">
+        <img src="https://images.unsplash.com/photo-1520974735194-8e2f7f4c02c3" alt="face analysis image">
+      </div>
+    </div>
+
+    <!-- feature 2 -->
+    <div class="scan-feature reverse">
+      <div class="scan-text">
+        <h3>Hairstyle Compatibility Engine</h3>
+        <p>
+          We match your facial structure with haircut styles that enhance
+          balance and proportion — ensuring your hairstyle works with your features.
+        </p>
+      </div>
+
+      <div class="scan-image">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="hair style image">
+      </div>
+    </div>
+
+    <!-- feature 3 -->
+    <div class="scan-feature">
+      <div class="scan-text">
+        <h3>Eyewear Precision Matching</h3>
+        <p>
+          Frame width, lens curvature, and geometric alignment are evaluated
+          to recommend glasses that enhance facial harmony.
+        </p>
+      </div>
+
+      <div class="scan-image">
+        <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c" alt="eyewear image">
+      </div>
+    </div>
+
+    <button class="scan-cta">Start Facial Scan</button>
+
+  </div>
+</section>
+
+
+<style>
+
+/* main section */
+.about-scan {
+  padding: 120px 20px 60px;
+  background: linear-gradient(to bottom, #f8f8f8, #ffffff);
+}
+
+.scan-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* heading area */
+.scan-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.scan-headline {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.scan-subheading {
+  font-size: 18px;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* about text */
+.epique-about {
+  max-width: 850px;
+  margin: 0 auto 90px;
+  text-align: center;
+}
+
+.epique-about p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  color: #444;
+}
+
+/* feature section */
+.scan-feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 100px;
+
+  /* animation part */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.scan-feature.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scan-feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.scan-text {
+  flex: 1;
+}
+
+.scan-text h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.scan-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.scan-image {
+  flex: 1;
+}
+
+.scan-image img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.4s ease;
+}
+
+.scan-image img:hover {
+  transform: scale(1.05);
+}
+
+/* button */
+.scan-cta {
+  align-self: flex-end;
+  margin-top: 60px;
+  padding: 18px 55px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.scan-cta:hover {
+  background: #a93226;
+  transform: translateY(-3px);
+}
+
+/* mobile view */
+@media (max-width: 768px) {
+  .scan-feature,
+  .scan-feature.reverse {
+    flex-direction: column;
+  }
+}
+
+</style>
+
+
+<script>
+
+// simple scroll animation
+let allFeatures = document.querySelectorAll(".scan-feature");
+
+let obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(item){
+    if(item.isIntersecting){
+      item.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.2 });
+
+allFeatures.forEach(function(box){
+  obs.observe(box);
+});
+
+</script>
+<script src="rotate.html"></script>

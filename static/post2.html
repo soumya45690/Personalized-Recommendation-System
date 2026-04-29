@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hair Trends</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: #fff0f5;
+            font-family: 'Poppins', sans-serif;
+            color: #222;
+        }
+
+        /* NAV BUTTONS */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 22px;
+            text-decoration: none;
+            color: black;
+            background: white;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomIn 6s ease forwards;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 60px 20px;
+            animation: fadeUp 1s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .author {
+            color: gray;
+            margin-bottom: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* FADE */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ARTICLE IMAGE */
+       .article-img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center;
+    margin: 30px 0;
+    border-radius: 14px;
+    transition: transform 0.35s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.article-img:hover {
+    transform: scale(1.02);
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- BUTTONS -->
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <a href="index.html" class="close-btn">✕</a>
+
+    <!-- HERO IMAGE -->
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=80">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <h1>Spring Hair Color Trends</h1>
+<div class="author">BY SOPHIE VILENSKY • HAIR</div>
+
+<p>
+This season focuses on soft transformation and natural elegance. Hair color trends are shifting toward dimensional tones, healthy shine, and effortless blends that enhance facial structure instead of overpowering it.
+</p>
+
+<img src="https://www.shear-genius-salon.com/wp-content/uploads/2019/03/best-hair-colors.jpeg" class="article-img">
+
+<p>
+Modern beauty is no longer about extreme contrast but about subtle refinement. The goal is to create depth, softness, and movement in every strand for a naturally polished appearance.
+</p>
+
+<!-- 1 -->
+<h2>1. Soft Blonde Elegance</h2>
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" class="article-img">
+<p>
+Soft blonde tones bring a luminous and airy effect that instantly brightens the face.  
+They reflect natural light beautifully, creating a fresh and youthful glow.  
+This shade works best for spring and summer-inspired looks.  
+It gives a clean, effortless aesthetic without looking overly styled.  
+Perfect for those who prefer soft luxury with minimal maintenance.
+</p>
+
+<!-- 2 -->
+<h2>2. Warm Brunette Glow</h2>
+<img src="https://tse1.explicit.bing.net/th/id/OIP.RNGyB8RD6DH8Oz010Sk3QwHaLH?rs=1&pid=ImgDetMain&o=7&rm=3" class="article-img">
+<p>
+Warm brunette shades add depth, richness, and natural dimension to the hair.  
+They create a soft contrast that enhances facial features subtly.  
+This tone blends beautifully with both casual and elegant fashion styles.  
+It is one of the most versatile and timeless color choices.  
+Ideal for a natural yet refined everyday appearance.
+</p>
+
+<!-- 3 -->
+<h2>3. Deep Jet Black Shine</h2>
+<img src="https://hairstyleinspirations.com/wp-content/uploads/2025/06/Jet-Black-Hair-Color-Ideas.webp" class="article-img">
+<p>
+Jet black hair delivers a strong, confident, and high-impact visual presence.  
+It enhances bone structure and creates a striking contrast with skin tones.  
+This shade is known for its sleek and polished finish.  
+It carries a timeless elegance that never goes out of fashion.  
+Best suited for bold yet minimal aesthetic styling.
+</p>
+
+<!-- 4 -->
+<h2>4. Copper Red Glow</h2>
+<img src="https://hairstylecamp.com/wp-content/uploads/copper-red-hair-with-highlights.jpg.webp" class="article-img">
+<p>
+Copper red is a vibrant and expressive shade that adds instant personality.  
+It captures warmth, energy, and individuality in a very natural way.  
+This tone stands out while still feeling wearable and modern.  
+It works beautifully under both sunlight and studio lighting.  
+Perfect for those who want a confident seasonal transformation.
+</p>
+
+<!-- 5 -->
+<h2>5. Golden Honey Blonde</h2>
+<img src="https://i.pinimg.com/736x/ee/e8/11/eee811c61c9eea026fe7fc114a90659f.jpg" class="article-img">
+<p>
+Golden honey blonde blends warmth and brightness into a soft, luxurious finish.  
+It creates a sun-kissed effect that looks natural and elegant.  
+This shade enhances glow and adds dimension to hair movement.  
+It is ideal for achieving a relaxed yet polished aesthetic.  
+A perfect balance between glamour and effortless beauty.
+</p>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

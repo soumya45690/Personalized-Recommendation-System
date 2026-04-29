@@ -1,0 +1,129 @@
+<section class="blog-section" id="styleGallery">
+    <div class="blog-container">
+
+        <a href="/static/post1.html" class="blog-card">
+            <img src="https://media.glamour.com/photos/572144a5c92a826368a22e53/master/h_1025,c_limit/spring-denim-jeans-outfits-romee-strijd.jpg">
+            <p class="category">WHAT TO WEAR • 6 HOURS AGO</p>
+            <h2>Hop to These 5 Easter Outfit Ideas for a Sweet, Trendy Look</h2>
+            <p class="desc">Hop to it.</p>
+            <span class="author">BY ALI WEBB</span>
+        </a>
+
+        <a href="/static/post2.html" class="blog-card">
+            <img src="https://i.pinimg.com/736x/ee/e8/11/eee811c61c9eea026fe7fc114a90659f.jpg">
+            <p class="category">HAIR COLOR • 7 HOURS AGO</p>
+            <h2>Spring’s Biggest Hair Color Trends "Tailored and Minimal"</h2>
+            <p class="desc">"Cardboard box brown" is also in the mix.</p>
+            <span class="author">BY SOPHIE VILENSKY</span>
+        </a>
+
+        <a href="/static/post3.html" class="blog-card">
+            <img src="https://i.pinimg.com/originals/fb/2d/a0/fb2da0a280c1ab73dc2e4bc897a0674f.png">
+            <p class="category">NAILS • 8 HOURS AGO</p>
+            <h2>The Ultimate Guide to Painting Your Nails</h2>
+            <p class="desc">Meet methods to paint nails.</p>
+            <span class="author">BY LAUREN GORDON</span>
+        </a>
+
+        <a href="/static/post4.html" class="blog-card">
+            <img src="https://salon1150.com/wp-content/uploads/2025/08/half-up-half-down-round-face-style-768x1024.jpg">
+            <p class="category">STYLE • 5 HOURS AGO</p>
+            <h2>HAIRCUT ACCORDING TO FACE SHAPE</h2>
+            <p class="desc">Where comfort meets statement.</p>
+            <span class="author">BY CORNEL YOUR</span>
+        </a>
+
+        <a href="/static/post5.html" class="blog-card">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
+            <p class="category">HAIRSTYLE • 9 HOURS AGO</p>
+            <h2>Minimal Fashion Is Quietly Becoming the Biggest Trend</h2>
+            <p class="desc">Less pieces, stronger impact.</p>
+            <span class="author">BY AAYIN SHEFFER</span>
+        </a>
+
+        <a href="/static/post6.html" class="blog-card">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
+            <p class="category">ACCESSORIES • 4 HOURS AGO</p>
+            <h2>The Accessories That Instantly Elevate Any Outfit</h2>
+            <p class="desc">Small details, big difference.</p>
+            <span class="author">BY ARIS ALEGER</span>
+        </a>
+
+    </div>
+</section>
+
+<div id="aboutScanSection"></div>
+
+<style>
+.blog-section {
+    padding: 60px 80px 40px 80px;
+    background: #f8f6f4;
+}
+
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.blog-card {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s ease;
+    display: block;
+}
+
+.blog-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.blog-card:hover img {
+    transform: scale(1.05);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+}
+
+.category {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: gray;
+    margin-top: 15px;
+}
+
+.blog-card h2 {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 10px 0;
+    line-height: 1.3;
+}
+
+.desc {
+    color: #555;
+    font-size: 14px;
+}
+
+.author {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .blog-container {
+        grid-template-columns: 1fr;
+    }
+    .blog-section {
+        padding: 40px 20px;
+    }
+}
+</style>

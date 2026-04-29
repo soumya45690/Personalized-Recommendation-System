@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curved Carousel UI</title>
+  <style>
+    :root{
+      --card-w: clamp(120px, 14vw, 170px);
+      --card-h: clamp(160px, 18vw, 220px);
+    }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 50% 20%, #d3b596 , #f3f5f9 55%, #e9ecf3);
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .wrap{
+      width: min(1100px, 96vw);
+      padding: 40px 10px 30px;
+      position: relative;
+    }
+
+    .carousel{
+      position: relative;
+      height: calc(var(--card-h) + 120px);
+      perspective: 1100px;
+      perspective-origin: 50% 40%;
+      overflow: hidden;
+      border-radius: 22px;
+    }
+
+    /* subtle arc background */
+    .carousel::before{
+      content:"";
+      position:absolute;
+      left:-10%;
+      right:-10%;
+      top: 15%;
+      height: 80%;
+      background: radial-gradient(80% 60% at 50% 70%, rgba(0,0,0,0.12), transparent 60%);
+      filter: blur(19px);
+      pointer-events:none;
+    }
+
+    .track{
+      position:absolute;
+      inset:0;
+      transform-style: preserve-3d;
+    }
+
+    .card{
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--card-w);
+      height: var(--card-h);
+      transform-style: preserve-3d;
+      border-radius: 16px;
+      overflow:hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.22);
+      background:#111;
+      transition:
+        transform 650ms cubic-bezier(.2,.8,.2,1),
+        opacity 650ms cubic-bezier(.2,.8,.2,1),
+        filter 650ms cubic-bezier(.2,.8,.2,1);
+      will-change: transform, opacity, filter;
+    }
+
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    /* controls */
+    .controls{
+      position:absolute;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      display:flex;
+      gap: 10px;
+      z-index: 50;
+    }
+    button{
+      border: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(20, 20, 30, 0.85);
+      color: #d3b596;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+    }
+    button:active{ transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="carousel" id="carousel">
+      <div class="track" id="track">
+        <!-- Replace these with your images -->
+
+        <div class="card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91"></div>
+
+    </div>
+</div>
+      <div class="controls">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    let current = 0;
+    let timer;
+
+    function mod(n, m){ return ((n % m) + m) % m; }
+
+    function render(){
+      const n = cards.length;
+
+      cards.forEach((card, i) => {
+        // compute shortest offset around the circle (wrap-around)
+        let offset = i - current;
+        if (offset > n/2) offset -= n;
+        if (offset < -n/2) offset += n;
+
+        const abs = Math.abs(offset);
+
+        // tweak these to match the “curve”
+        const spacing = 170;           // horizontal spacing between cards
+        const rotate = 24;             // Y-rotation per step
+        const zPushBack = 120;         // how much cards go back per step
+        const yLift = 12;              // small arc lift
+
+        const x = offset * spacing;
+        const z = -abs * zPushBack;
+        const y = -abs * yLift;
+
+        const scale = 1 - abs * 0.07;
+        const opacity = abs > 4 ? 0 : 1;
+
+        card.style.opacity = opacity;
+        card.style.zIndex = String(100 - abs);
+        card.style.filter = `blur(${abs * 0.35}px)`;
+
+        card.style.transform =
+          `translate(-50%, -50%)
+           translateX(${x}px)
+           translateY(${y}px)
+           translateZ(${z}px)
+           rotateY(${offset * -rotate}deg)
+           scale(${scale})`;
+      });
+    }
+
+    function next(){
+      current = mod(current + 1, cards.length);
+      render();
+    }
+    function prev(){
+      current = mod(current - 1, cards.length);
+      render();
+    }
+
+    function autoplay(){
+      clearInterval(timer);
+      timer = setInterval(next, 2200);
+    }
+
+    nextBtn.addEventListener("click", () => { next(); autoplay(); });
+    prevBtn.addEventListener("click", () => { prev(); autoplay(); });
+
+    // initial
+    render();
+    autoplay();
+  </script>
+</body>
+</html>

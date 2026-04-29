@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body { font-family: 'Poppins'; background: #fdfaf7; padding: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; border-radius: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; }
+        .banner { background: #d3b596; color: white; padding: 20px; border-radius: 20px; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Recommendations for {{ gen }} ({{ body }})</h1>
+        <p>Face: {{ shape }} | Tone: {{ tone }}</p>
+    </div>
+    <div class="grid">
+        <div class="card"><h3>Hairstyle</h3><img src="/static/{{ d.hs_image }}"><p>{{ d.hs_name }}</p></div>
+        <div class="card"><h3>Outfit</h3><img src="/static/{{ d.outfit_image }}"><p>{{ d.outfit_name }}</p></div>
+        <div class="card"><h3>Accessory</h3><img src="/static/{{ d.acc_image }}"><p>{{ d.acc_name }}</p></div>
+        <div class="card"><h3>Shoes</h3><img src="/static/{{ d.shoe_image }}"><p>{{ d.shoe_name }}</p></div>
+        <div class="card"><h3>Lens</h3><img src="/static/{{ d.lens_image }}"><p>{{ d.lens_name }}</p></div>
+        {% if gen == 'Female' %}<div class="card"><h3>Lipstick</h3><img src="/static/{{ d.lip_image }}"><p>{{ d.lip_name }}</p></div>{% endif %}
+    </div>
+        <div class="card">
+    <h3>Recommended Hair Colour</h3>
+    <img src="/static/{{ d.hc_image }}">
+    <p>{{ d.hc_name }}</p>
+</div>
+
+<div class="card">
+    <h3>Best Clothing Colour</h3>
+    <img src="/static/{{ d.cc_image }}">
+    <p>{{ d.cc_name }}</p>
+</div>
+    <br><a href="/" style="color:#d3b596; font-weight:bold;">← Scan Again</a>
+</body>
+</html>

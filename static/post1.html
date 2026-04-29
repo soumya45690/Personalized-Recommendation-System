@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outfit Ideas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: #fff0f5;
+            font-family: 'Poppins', sans-serif;
+            color: #222;
+        }
+
+        /* NAV BUTTONS */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 22px;
+            text-decoration: none;
+            color: black;
+            background: white;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        /* HERO IMAGE */
+        .hero {
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomIn 6s ease forwards;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 60px 20px;
+            animation: fadeUp 1s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 40px;
+        }
+
+        .author {
+            color: gray;
+            margin-bottom: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* FADE ANIMATION */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ FIXED IMAGE SIZE (MATCHES YOUR DESIGN) */
+        .article-img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center;
+    margin: 30px 0;
+    border-radius: 14px;
+    transition: transform 0.35s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+        .article-img:hover {
+            transform: scale(1.02);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <a href="index.html" class="close-btn">✕</a>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
+    </div>
+
+    <div class="content">
+
+    <h1>Hop to These 5 Easter Outfit Ideas</h1>
+    <div class="author">BY ALI WEBB • FASHION</div>
+
+    <p>
+        Fashion is more than just clothing — it's a powerful form of self-expression,
+        confidence, and personality. What you wear tells a story before you even speak,
+        and seasonal fashion allows you to refresh that story with new colors, textures,
+        and silhouettes.
+    </p>
+
+    <p>
+        Easter represents renewal, warmth, and positivity — making it the perfect time
+        to embrace soft tones, breathable fabrics, and elegant styles. Whether you're
+        celebrating with family, attending brunch, or enjoying a sunny day outdoors,
+        your outfit should reflect both comfort and charm.
+    </p>
+
+    <img src="https://editorialist.com/wp-content/uploads/2022/09/How-to-Wear-Combat-Boots_Hero.png" class="article-img">
+
+    <p>
+        This curated list blends modern fashion trends with timeless pieces to help you
+        create looks that are effortlessly stylish. Each outfit idea is versatile,
+        easy to recreate, and perfect for making a subtle yet stunning statement.
+    </p>
+
+    <h2>1. Soft Lavender Dress</h2>
+    <img src="https://images.cbazaar.com/images/women-lavender-organza-embroidered-border-saree-and-matching-silk-blouse-sasacy6724-l.jpg" class="article-img">
+    
+    <p>
+        A soft lavender flowy dress perfectly captures the essence of spring freshness.
+        The calming pastel tone adds a delicate charm, while the lightweight fabric
+        ensures all-day comfort.
+    </p>
+
+    <p>
+        <strong>How to style:</strong> Pair it with nude heels or white sneakers for a
+        casual twist. Add minimal jewelry like a thin chain or pearl earrings to keep
+        the look elegant and balanced.
+    </p>
+
+    <p>
+        <strong>Perfect for:</strong> Easter brunch, garden parties, or daytime outings.
+    </p>
+
+    <h2>2. Minimal White Linen Set</h2>
+    <img src="https://www.itsallbee.com/wp-content/uploads/2024/03/White-Linen-Dresses-4.png" class="article-img">
+    
+    <p>
+        Nothing says effortless sophistication like a crisp white linen outfit.
+        This breathable fabric keeps you cool while giving a structured yet relaxed vibe.
+    </p>
+
+    <p>
+        <strong>How to style:</strong> Add tan sandals, a woven handbag, and oversized
+        sunglasses for a chic summer-ready look.
+    </p>
+
+    <p>
+        <strong>Perfect for:</strong> Casual gatherings, vacations, or minimalist lovers.
+    </p>
+
+    <h2>3. Floral Midi Dress</h2>
+    <img src="https://www.extrapetite.com/wp-content/uploads/2023/06/en-saison-floral-watercolor-sheer-dress-scaled.jpg" class="article-img">
+    
+    <p>
+        Floral prints are timeless and synonymous with spring. A midi dress with soft
+        floral patterns adds a romantic and feminine touch to your overall look.
+    </p>
+
+    <p>
+        <strong>How to style:</strong> Pair it with strappy sandals and a light cardigan.
+        Keep makeup fresh and natural for a soft aesthetic.
+    </p>
+
+    <p>
+        <strong>Perfect for:</strong> Family events, picnics, or outdoor celebrations.
+    </p>
+
+    <h2>4. Pastel Blazer Look</h2>
+    <img src="https://i.pinimg.com/originals/bc/71/e0/bc71e0945946126b7660342d90aaba4f.jpg" class="article-img">
+    
+    <p>
+        For a more polished and modern appearance, a pastel blazer paired with tailored
+        trousers is the perfect combination of bold and elegant.
+    </p>
+
+    <p>
+        <strong>How to style:</strong> Choose soft shades like mint, blush, or baby blue.
+        Pair with neutral heels and a sleek handbag.
+    </p>
+
+    <p>
+        <strong>Perfect for:</strong> Formal brunches, semi-professional events, or city outings.
+    </p>
+
+    <h2>5. Casual Denim Chic</h2>
+    <img src="/static/images/img1.jpg" class="article-img">
+    
+    <p>
+        Denim never goes out of style. A relaxed pair of jeans with a soft cotton or
+        pastel top creates a comfortable yet trendy look.
+    </p>
+
+    <p>
+        <strong>How to style:</strong> Add white sneakers, a crossbody bag, and subtle
+        accessories for an everyday casual outfit.
+    </p>
+
+    <p>
+        <strong>Perfect for:</strong> Shopping trips, casual meetups, or travel days.
+    </p>
+
+    <h2>Final Thoughts</h2>
+    <p>
+        Easter fashion is all about embracing lightness, positivity, and effortless beauty.
+        You don't need an entirely new wardrobe — just a few thoughtfully styled pieces
+        can transform your entire look.
+    </p>
+
+    <p>
+        Choose outfits that make you feel confident and comfortable, and let your personal
+        style shine through every detail. After all, the best outfit is the one you feel
+        happiest wearing.
+    </p>
+
+</div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Round Face</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: #fff0f5; /* 💗 baby pink background */
+            font-family: 'Poppins', sans-serif;
+            color: #2b2b2b;
+        }
+
+        /* BUTTONS */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 22px;
+            text-decoration: none;
+            color: black;
+            background: white;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        /* HERO */
+        .hero {
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoom 6s ease forwards;
+        }
+
+        @keyframes zoom {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 20px;
+            animation: fade 1s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .author {
+            color: gray;
+            margin-bottom: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* EXTRA IMAGE */
+        .article-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center;
+            margin: 30px 0;
+            border-radius: 14px;
+            transition: transform 0.35s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .article-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* FACE SECTION FIXED */
+        .face-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .face-text {
+            flex: 1;
+        }
+
+        .face-title {
+            font-size: 38px;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            color: #111;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .face-img {
+            width: 340px;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+        }
+         .facesqr-img {
+            width: 340px;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+        }
+
+        .sub-heading {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            color: #111;
+        }
+
+        .cut-card {
+            margin-bottom: 35px;
+        }
+
+        .cut-card img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-top: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .cut-card p {
+            margin: 6px 0;
+            color: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- FIXED BUTTON -->
+<button class="back-btn" onclick="goBack()">← Back</button>
+<a href="index.html" class="close-btn">✕</a>
+
+<div class="hero">
+    <img src="https://headcurve.com/wp-content/uploads/2017/09/round-face-shape-illustration.jpg">
+</div>
+
+<div class="content">
+
+<div class="face-section">
+
+    <div class="face-text">
+        <div class="face-title">✨ ROUND FACE STRUCTURE</div>
+
+        <p>
+            A round face has soft curves with equal width and height, and no sharp angles. The cheeks are the widest part of the face. The goal of styling is to create length and definition.
+        </p>
+ <p>Round faces are lucky to have soft, curved features with wide cheekbones and a rounded chin—an almost angelic look that has an air of youthful sweetness about it.</p>
+ <p>
+Finding the best hairstyles for round faces is all about choosing which features you want to accentuate and leveraging some scissor tricks to add some balance.
+ </p>
+        <p>
+            The round face shape is defined by soft curves and youthful appearance. Styling focuses on adding structure and elongation to balance facial proportions.
+        </p>
+
+        <p>
+            Celebrities like Selena Gomez and Mila Kunis often use layered styles and side parts to enhance facial structure and create definition.
+        </p>
+    </div>
+
+    <img src="https://faceshapes.io/imgs/2025-07-22/round-face-features-guide.webp" class="face-img">
+
+</div>
+
+<div class="sub-heading">Haircuts That Suit Round Face</div>
+
+<div class="cut-card">
+    <p><b>Side Swept Lob</b> – Creates a slimming effect and highlights cheekbones.</p>
+    <p>With the return of the side part and embracement of long layers, the side-swept lob is the perfect trendy haircut for round faces.</p>
+    <p> “It opens up the face, drawing attention to the cheekbones and creating the illusion of length,” explains Jacob Sirianno, celebrity hairstylist at Pearlita in New York City. “Keeping the face-framing layers long adds even more drama and elongation to the face.”  </p>
+    <img src="https://www.realsimple.com/thmb/sNjrkT6jqmdL_7amow_Vfcqnyec=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-2180913452-222462bd95b9480bb688e4e87cc23f3e.jpg">
+</div>
+
+<div class="cut-card">
+    <p><b>Shoulder-Length Waves</b> – Adds softness and natural balance to the face.</p>
+    <p>
+ For this style, avoid blunt cuts and opt for gentle layers to keep the style light and flattering. This works well for straight or wavy hair, though working in some curls or waves naturally adds volume in all the right places.
+    </p>
+    <p>
+        Soft, shoulder-length waves strike the perfect balance for round faces, adding movement and subtle angles that help elongate the face
+    </p>
+    <img src="https://www.realsimple.com/thmb/uUBrCTXgKW9-vXFpDCqRRwkwoik=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1344079045-9f9d6a590bd7497f80f87f54df2bd13e.jpg">
+</div>
+
+<div class="cut-card">
+    <p><b>Layered Curtain Bangs</b> – Frames the face and enhances facial symmetry.</p>
+    <p>
+Consider curtain bangs a secret weapon for balancing out round faces. They help carve out instant cheekbone definition while creating the illusion of a slightly longer face shape.
+    </p>
+    <p> Plus, the split, face-framing effect softens the widest part of the face and blends nicely into longer layers for a lightweight, super flattering look. Wear them full and feathery for a retro vibe or slightly parted for an effortlessly chic touch. 
+    
+    </p>
+    <img src="https://www.realsimple.com/thmb/dYAd3Bvvn2ChhlfTZ2GbpM3onLE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-2203670257-bf108598f9dc4788a8402286879cd82d.jpg">
+</div>
+div style="display:flex; align-items:center; justify-content:space-between; gap:40px; margin-top:30px;">
+<div class="face-text"style="flex:1;">
+    <div class="face-title">✨ SQUARE FACE STRUCTURE</div>
+
+    <p>
+        A square face is defined by a strong jawline, broad forehead, and equal width across the face. The angles are more defined compared to softer face shapes.
+    </p>
+
+    <p>
+        This face shape gives a bold, structured, and confident look. The styling goal is to soften the sharp angles while maintaining natural balance.
+    </p>
+
+    <p>
+        Square faces naturally carry a powerful and striking appearance, often associated with strong facial symmetry and sharp bone structure.
+    </p>
+
+    <p>
+        The best hairstyles for square faces focus on adding softness, movement, and gentle curves to reduce the sharpness of the jawline.
+    </p>
+
+    <p>
+        Celebrities like Angelina Jolie and Keira Knightley often use layered waves and soft framing styles to balance their strong facial structure beautifully.
+    </p>
+       <!-- RIGHT IMAGE -->
+    <div style="flex-shrink:0; margin-left:auto;">
+           <img src="https://beutofullness.com/wp-content/uploads/2020/08/square-Face.jpg"class ="face-img">
+               
+       </div>
+
+</div>
+
+
+
+<div class="sub-heading">Haircuts That Suit Square Face</div>
+
+<div class="cut-card">
+    <p><b>Soft Layered Bob</b> – Reduces sharp jawline and adds smooth flow.</p>
+    <p>
+        A soft layered bob helps break the angular structure of a square face, creating a more balanced and elegant look.
+    </p>
+    <p>
+        The gentle layering adds movement and removes heaviness around the jawline, making the face appear softer.
+    </p>
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1"class="face-img">
+</div>
+
+<div class="cut-card">
+    <p><b>Long Wavy Layers</b> – Adds softness and elongates the face.</p>
+    <p>
+        Long waves help reduce the strong edges of a square face by adding natural flow and vertical length.
+    </p>
+    <p>
+        This style creates a balanced silhouette while keeping the look feminine and effortless.
+    </p>
+    <img src="http://pophaircuts.com/images/2020/06/Flattering-Medium-Length-Haircut-with-Wavy-Hair-Medium-Wavy-Hairstyles.jpg">
+</div>
+
+<div class="cut-card">
+    <p><b>Side-Swept Bangs with Layers</b> – Softens forehead and jawline angles.</p>
+    <p>
+        Side-swept bangs break the symmetry of a square face, making the features look less rigid.
+    </p>
+    <p>
+        Combined with layers, this haircut adds softness and a natural framing effect around the face.
+    </p>
+    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2">
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>

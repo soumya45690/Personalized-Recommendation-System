@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - Sassy Chic</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    background: #f4f2f2;
+}
+
+/* LEFT SIDE (Luxury Visual) */
+.left-panel {
+    width: 55%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+}
+
+.left-panel h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.left-panel p {
+    font-size: 16px;
+    opacity: 0.85;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* RIGHT SIDE */
+.right-panel {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FORM */
+.form-box {
+    position: relative;
+    width: 340px;
+    padding: 40px 30px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    text-align: left;
+    animation: fadeIn 0.6s ease;
+}
+
+/* CLOSE BUTTON (PROPER) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    font-size: 20px;
+    border: none;
+    background: rgba(0,0,0,0.05);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background: black;
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* HEADINGS */
+.form-box h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* INPUTS */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom: 1px solid black;
+}
+
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: black;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* SWITCH TEXT */
+.switch {
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.switch span {
+    color: black;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* HIDDEN */
+.hidden {
+    display: none;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+        height: 40%;
+        padding: 40px;
+    }
+
+    .right-panel {
+        width: 100%;
+        height: 60%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEFT -->
+<div class="left-panel">
+    <h1>SASSY CHIC</h1>
+    <p>Discover a smarter way to define your style. Personalized. Inclusive. Effortless.</p>
+</div>
+
+<!-- RIGHT -->
+<div class="right-panel">
+
+    <div class="form-box">
+
+        <!-- ✖ CLOSE BUTTON -->
+        <button class="close-btn" onclick="goBack()">×</button>
+
+       <div id="loginForm">
+    <h2>Login</h2>
+    <form action="{{ url_for('login_process') }}" method="POST">
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Email" required maxlength="15">
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required maxlength="10">
+        </div>
+        <button type="submit" class="btn">Login</button>
+    </form>
+    <div class="switch">
+        Don’t have an account? 
+        <span onclick="showRegister()">Register</span>
+    </div>
+</div>
+
+<div id="registerForm" class="hidden">
+    <h2>Create Account</h2>
+    <form action="{{ url_for('register_process') }}" method="POST">
+        <div class="input-group">
+            <input type="text" name="name" placeholder="Full Name" required maxlength="30" >
+        </div>
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Email" required maxlength="15">
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required maxlength="10">
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <div class="switch">
+        Already have an account? 
+        <span onclick="showLogin()">Login</span>
+    </div>
+</div>
+
+    </div>
+
+</div>
+
+<script>
+function showRegister() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+}
+
+function showLogin() {
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+}
+
+function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>

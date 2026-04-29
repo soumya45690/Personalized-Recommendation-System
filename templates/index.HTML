@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>SASSY CHIC - Fashion & Style</title>
+    <style>
+        /* Base Styles */
+        body { font-family: 'Poppins', sans-serif; margin:0; background:#f4f2f2; text-align:center; scroll-behavior: smooth; }
+
+        /* Navbar Style */
+        .navbar {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:15px 50px; background:#d3b596; position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-section { display: flex; align-items: center; }
+        .logo { width:40px; height:40px; margin-right: 10px; }
+        .brand { font-size:20px; font-weight:bold; color: black; }
+        .nav-links a { margin-left:25px; text-decoration:none; color:black; font-weight:bold; cursor:pointer; }
+
+        /* Slider Section */
+        .slider-container { width:100%; overflow:hidden; }
+        .slider { display:flex; transition:transform 1s ease; }
+        .slide { flex:0 0 100%; }
+        .slide img { width:100%; height:400px; object-fit:cover; }
+
+        /* Intro Section - Side by Side Layout */
+        .refine-section { 
+            margin: 60px auto; 
+            padding: 0 60px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 50px; 
+            max-width: 95%; 
+        }
+        .intro-text { flex: 2; text-align: justify; }
+        .intro-text h2 { font-family: 'Playfair Display'; font-size: 32px; margin-bottom: 25px; text-align: left; }
+        .intro-text p { font-size: 14.5px; line-height: 1.8; color: #444; margin-bottom: 20px; }
+        
+        /* Video size reduced as per photo */
+        .side-video { 
+            flex: 1; 
+            width: 35%; 
+            max-width: 420px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
+
+        /* Journey & Gallery Section (White Box) */
+        .journey-section { 
+            margin: 60px auto; 
+            padding: 60px; 
+            background: white; 
+            border-radius: 20px; 
+            max-width: 950px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+        }
+        .journey-section h2 { font-family: 'Playfair Display'; font-size: 32px; margin-top: 40px; }
+        .journey-section p { font-size: 15.5px; color: #555; line-height: 1.9; margin: 15px auto; max-width: 850px; }
+        
+        /* The Journey Button */
+        .journey-btn { 
+            padding: 18px 60px; 
+            border-radius: 50px; 
+            background: linear-gradient(135deg, #ff6ec4, #7873f5); 
+            color: white; 
+            font-weight: bold; 
+            font-size: 18px; 
+            text-decoration: none; 
+            display: inline-block; 
+            transition: 0.3s; 
+            margin: 30px 0; 
+            border: none;
+            cursor: pointer;
+        }
+        .journey-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+        #blogSection, #faqSection { width: 100%; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo-section">
+        <img src="{{ url_for('static', filename='images/logo-design-fashion_992397-1995.avif') }}" class="logo">
+        <span class="brand">SASSY CHIC</span>
+    </div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a onclick="document.getElementById('blogSection').scrollIntoView({behavior:'smooth'})">Style Gallery</a>
+        <a onclick="document.getElementById('faqSection').scrollIntoView({behavior:'smooth'})">FAQ</a>
+        {% if session.get('loggedin') %}
+            <a href="{{ url_for('logout') }}" style="color:#c0392b;">Logout ({{ session['user_name'] }})</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="slider-container">
+    <div class="slider" id="slider">
+        <div class="slide"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc"></div>
+    </div>
+</div>
+
+<div class="refine-section">
+    <div class="intro-text">
+        <h2>Style That Speaks Before You Do</h2>
+        <p>Personalization and inclusivity are at the core of everything we create.</p>
+        <p>We are committed to ensuring that every individual who engages with our platform feels recognized, understood, and represented—regardless of skin tone, facial features, gender identity, or personal style. By combining technology with thoughtful design, we strive to offer recommendations that celebrate diversity rather than standardize it. We believe that style is not limited to a single ideal, and no one should feel excluded from discovering what works best for them. Every face is unique, every feature tells a story, and our goal is to honor that individuality through insights that are respectful, empowering, and tailored to you. Because true innovation in fashion is not just about trends—it is about making everyone feel seen.</p>
+        <p>At our core, we believe that style should begin with you. Every face, every feature, and every identity carries its own uniqueness, and that individuality deserves to be acknowledged, respected, and celebrated. Our platform is designed to create a space where technology supports self-expression, not defines it.</p>
+        <p>We see technology as a tool to enhance confidence, simplify choices, and make style discovery more accessible and meaningful. Because when people feel seen and understood, they are more confident in expressing who they truly are—and that is where real style begins.</p>
+    </div>
+    <video class="side-video" autoplay muted loop>
+        <source src="{{ url_for('static', filename='videos/Video Project1.mp4') }}">
+    </video>
+</div>
+
+<div class="journey-section">
+    <h2>Discover Your Personal Style Journey</h2>
+    <p>Fashion is more than clothing — it is identity, confidence, and expression. Our platform helps you explore styles that truly match your personality.</p>
+    <p>From modern trends to timeless elegance, every suggestion is designed to highlight your individuality.</p>
+    <p>We blend technology and creativity to make style discovery effortless and meaningful.</p>
+    
+    <a href="{{ url_for('gender_page') }}" class="journey-btn">Start Your Style Journey</a>
+    
+    <h2>Explore the Style Gallery</h2>
+    <p>The Style Gallery is your visual inspiration space where fashion ideas come alive. It showcases curated looks designed to help you discover what suits you best.</p>
+    <p>Every outfit reflects real styling concepts that balance aesthetics and comfort.</p>
+    <p>You can browse different categories, compare styles, and understand what works for your body type and personality.</p>
+    <p>The goal is not just to follow trends, but to help you define your own unique fashion identity.</p>
+</div>
+
+<div id="blogSection"></div>
+<div id="faqSection"></div>
+
+<script>
+    // 1. Slider Logic (Same rahega)
+    const slider = document.getElementById("slider");
+    let index = 0;
+    setInterval(() => {
+        index = (index + 1) % 2;
+        if(slider) slider.style.transform = `translateX(-${index * 100}%)`;
+    }, 3000);
+
+    // 2. Blog Fetch
+    fetch("{{ url_for('static', filename='blog.html') }}")
+        .then(res => res.text())
+        .then(data => { document.getElementById("blogSection").innerHTML = data; });
+
+    // 3. FAQ Fetch + Click Logic (Fixed)
+    fetch("{{ url_for('static', filename='faq.html') }}")
+        .then(res => res.text())
+        .then(data => { 
+            const faqSection = document.getElementById("faqSection");
+            faqSection.innerHTML = data; 
+            
+            // Naya Click Logic: Fetch hone ke baad hi buttons ko click ka power milega
+            faqSection.addEventListener("click", function(e) {
+                const item = e.target.closest(".faq-item");
+                if (!item) return;
+
+                // Doosre saare open items ko band karne ke liye
+                document.querySelectorAll(".faq-item").forEach(el => {
+                    if (el !== item) {
+                        el.classList.remove("active");
+                        const otherAns = el.querySelector(".faq-answer");
+                        if(otherAns) otherAns.style.maxHeight = null;
+                    }
+                });
+
+                // Current item ko open/close karne ke liye
+                item.classList.toggle("active");
+                const answer = item.querySelector(".faq-answer");
+
+                if (item.classList.contains("active")) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+</script>
+
+</body>
+</html>
